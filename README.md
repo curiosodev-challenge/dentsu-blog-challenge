@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# DWS Blog Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend implementation for the DWS Blog technical challenge using React, TypeScript, Vite, and Zustand.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm run dev`: run development server
+- `npm run build`: build production bundle
+- `npm run preview`: preview production build
+- `npm run lint`: run ESLint
+- `npm run test`: run unit tests with Vitest
 
-## React Compiler
+## Setup
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+echo "VITE_API_BASE_URL='insert back-end url'" >> .env.override
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application uses `VITE_API_BASE_URL` and defaults to:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+https://tech-test-backend.dwsbrazil.io
 ```
+
+Use `.env.override` to define your backend URL for local setup.
+
+## Project Structure
+
+```text
+src
+ ├── components
+ ├── hooks
+ ├── pages
+ ├── services
+ ├── store
+ ├── styles
+ ├── types
+ └── utils
+```
+
+## Architecture Summary
+
+- `components`: reusable presentational pieces
+- `pages`: list and detail page composition
+- `hooks`: fetch/data orchestration and interaction with store
+- `services`: API access and data normalization
+- `store`: shared application state via Zustand
