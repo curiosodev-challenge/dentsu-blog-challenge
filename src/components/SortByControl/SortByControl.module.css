@@ -1,0 +1,62 @@
+.sortBy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-body-small);
+  line-height: var(--font-line-height-body-small);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--neutral-extra-dark);
+}
+
+.icon {
+  color: var(--accent-1-medium);
+  font-size: 0.88rem;
+  transition: color 160ms ease;
+}
+
+.toggle {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--neutral-dark);
+  font-size: var(--font-size-body-small);
+  line-height: var(--font-line-height-body-small);
+  font-weight: var(--font-weight-semi-bold);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.toggle:hover,
+.toggle:focus-visible {
+  background: var(--accent-1-medium);
+  border-color: var(--accent-1-medium);
+  color: var(--neutral-extra-light);
+}
+
+.toggle:hover .icon,
+.toggle:focus-visible .icon {
+  color: var(--neutral-extra-light);
+}
+
+.currentValue {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

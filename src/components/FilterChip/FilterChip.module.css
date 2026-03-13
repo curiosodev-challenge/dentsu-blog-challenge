@@ -1,0 +1,25 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  height: 2rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--neutral-extra-light);
+  color: var(--primary-dark);
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-regular);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: none;
+}
+
+button.chip {
+  cursor: pointer;
+}
+
+.active {
+  background: #fde8f0;
+}
