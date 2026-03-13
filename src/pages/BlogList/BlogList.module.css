@@ -239,6 +239,7 @@
 
 .filterOption {
   border: 1px solid transparent;
+  margin-bottom: 0.15rem;
   border-bottom-color: var(--neutral-extra-light);
   border-radius: 0;
   background: transparent;
