@@ -1,0 +1,147 @@
+@use './colors' as color;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-large);
+  line-height: var(--font-line-height-body-large);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  background-image:
+    linear-gradient(
+      to bottom,
+      var(--bg-main) 0,
+      var(--bg-main) var(--page-header-offset),
+      rgba(255, 255, 255, 0) var(--page-header-offset)
+    ),
+    radial-gradient(
+      circle at 90% calc(var(--page-header-offset) + 16.666%),
+      rgba(color.$secondary-light, 0.32) 0 12rem,
+      rgba(color.$secondary-light, 0.16) 22rem,
+      rgba(color.$secondary-light, 0) 40rem
+    ),
+    radial-gradient(
+      circle at 10% calc(var(--page-header-offset) + 50%),
+      rgba(color.$accent-1-light, 0.3) 0 12rem,
+      rgba(color.$accent-1-light, 0.15) 22rem,
+      rgba(color.$accent-1-light, 0) 40rem
+    ),
+    radial-gradient(
+      circle at 90% calc(var(--page-header-offset) + 83.333%),
+      rgba(color.$primary-light, 0.24) 0 13rem,
+      rgba(color.$primary-light, 0.12) 24rem,
+      rgba(color.$primary-light, 0) 42rem
+    );
+  background-repeat: no-repeat;
+}
+
+html[data-theme='dark'] body {
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  background-image:
+    linear-gradient(
+      to bottom,
+      var(--bg-main) 0,
+      var(--bg-main) var(--page-header-offset),
+      rgba(11, 15, 24, 0) var(--page-header-offset)
+    ),
+    radial-gradient(
+      circle at 90% calc(var(--page-header-offset) + 16.666%),
+      rgba(color.$secondary-light, 0.18) 0 12rem,
+      rgba(color.$secondary-light, 0.09) 22rem,
+      rgba(color.$secondary-light, 0) 40rem
+    ),
+    radial-gradient(
+      circle at 10% calc(var(--page-header-offset) + 50%),
+      rgba(color.$accent-1-light, 0.2) 0 12rem,
+      rgba(color.$accent-1-light, 0.1) 22rem,
+      rgba(color.$accent-1-light, 0) 40rem
+    ),
+    radial-gradient(
+      circle at 90% calc(var(--page-header-offset) + 83.333%),
+      rgba(color.$primary-light, 0.14) 0 13rem,
+      rgba(color.$primary-light, 0.07) 24rem,
+      rgba(color.$primary-light, 0) 42rem
+    );
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-main);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--font-line-height-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--font-line-height-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--font-line-height-h3);
+}
+
+p {
+  font-size: var(--font-size-body-large);
+  line-height: var(--font-line-height-body-large);
+  font-weight: var(--font-weight-regular);
+}
+
+/* Reserved utility classes (currently unused, kept intentionally). */
+.text-body-large {
+  font-size: var(--font-size-body-large);
+  line-height: var(--font-line-height-body-large);
+}
+
+.text-body-large--semi-bold {
+  font-size: var(--font-size-body-large);
+  line-height: var(--font-line-height-body-large);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.text-body-small {
+  font-size: var(--font-size-body-small);
+  line-height: var(--font-line-height-body-small);
+  font-weight: var(--font-weight-regular);
+}
+
+.text-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--font-line-height-caption);
+  font-weight: var(--font-weight-regular);
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.appShell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}

@@ -12,15 +12,15 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0.75rem 1rem 1rem;
+  padding: 0.75rem var(--layout-inline-padding-mobile) 1rem;
   background: var(--bg-main);
   border-top: 1px solid var(--neutral-extra-light);
 }
 
 .themeToggle {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
+  width: var(--control-size);
+  height: var(--control-size);
+  border-radius: var(--control-radius-pill);
   border: 1px solid var(--neutral-extra-light);
   background: var(--surface);
   color: var(--primary-dark);
@@ -37,6 +37,6 @@
 
 @media (min-width: 40rem) {
   .footerRow {
-    padding: 0.75rem 56px 1.25rem;
+    padding: 0.75rem var(--layout-inline-padding-desktop) 1.25rem;
   }
 }

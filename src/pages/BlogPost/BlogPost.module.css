@@ -4,7 +4,7 @@
 }
 
 .status {
-  margin: 0.65rem 1rem;
+  margin: 0.65rem var(--layout-inline-padding-mobile);
   color: var(--neutral-dark);
   font-size: var(--font-size-body-small);
   line-height: var(--font-line-height-body-small);
@@ -12,7 +12,7 @@
 
 .layout {
   background: transparent;
-  padding: 0.75rem 1rem 1.5rem;
+  padding: 0.75rem var(--layout-inline-padding-mobile) 1.5rem;
   display: grid;
   gap: 1.5rem;
 }
@@ -56,7 +56,8 @@
 
 @media (min-width: 40rem) {
   .layout {
-    padding: 1rem 56px 56px;
+    padding: 1rem var(--layout-inline-padding-desktop)
+      var(--layout-page-bottom-padding-desktop);
   }
 
   .postArea {

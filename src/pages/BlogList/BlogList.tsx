@@ -514,8 +514,12 @@ export function BlogList({ onSelectPost }: BlogListProps) {
 
           {!isBootstrapping && error && posts.length > 0 && (
             <div className={styles.errorBox} role="alert">
-              <p>{error}</p>
-              <button type="button" onClick={() => void reload()}>
+              <p className={styles.errorMessage}>{error}</p>
+              <button
+                type="button"
+                className={styles.errorRetryButton}
+                onClick={() => void reload()}
+              >
                 Try again
               </button>
             </div>

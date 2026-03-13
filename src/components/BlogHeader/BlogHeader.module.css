@@ -3,7 +3,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.75rem;
-  padding: 0 1rem;
+  padding: 0 var(--layout-inline-padding-mobile);
   background: var(--bg-main);
   position: relative;
 }
@@ -26,7 +26,7 @@
   width: auto;
   transform: translateY(-0.2rem);
   height: var(--font-size-h1);
-  filter: brightness(0) saturate(100%);
+  filter: var(--brand-logo-filter);
   align-self: baseline;
 }
 
@@ -43,10 +43,10 @@
 }
 
 .mobileSearchToggle {
-  width: 40px;
-  height: 40px;
+  width: var(--control-size);
+  height: var(--control-size);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--control-radius-pill);
   background: var(--primary-dark);
   color: var(--neutral-lightest);
   display: inline-flex;
@@ -73,7 +73,7 @@
   align-items: center;
   gap: 0.4rem;
   border: 1px solid var(--accent-1-medium);
-  border-radius: 999px;
+  border-radius: var(--control-radius-pill);
   padding: 0 0.5rem;
   background: var(--surface);
   min-height: 2.5rem;
@@ -178,7 +178,7 @@
   align-content: start;
   align-items: start;
   gap: 0;
-  padding: 0.75rem 1rem 1rem;
+  padding: 0.75rem var(--layout-inline-padding-mobile) 1rem;
   background: var(--bg-main);
 }
 
@@ -215,7 +215,7 @@
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 0.75rem;
     align-items: end;
-    padding: 0 56px;
+    padding: 0 var(--layout-inline-padding-desktop);
   }
 
   .headerMobileSearchOpen {
@@ -224,7 +224,7 @@
     z-index: auto;
     height: auto;
     gap: 0.75rem;
-    padding: 0 56px;
+    padding: 0 var(--layout-inline-padding-desktop);
     align-content: normal;
   }
 
@@ -264,7 +264,7 @@
     border: 1px solid transparent;
     padding: 8px 8px 8px 0;
     min-height: 56px;
-    transition: border-color 160ms ease;
+    transition: border-color var(--transition-base);
   }
 
   .searchField:hover,
@@ -275,7 +275,7 @@
 
   .searchInput {
     padding: 0 16px;
-    height: 40px;
+    height: var(--control-size);
   }
 
   .mobileBackButton,
@@ -293,10 +293,10 @@
   }
 
   .searchButton {
-    width: 40px;
-    height: 40px;
+    width: var(--control-size);
+    height: var(--control-size);
     border: none;
-    border-radius: 50%;
+    border-radius: var(--control-radius-pill);
     background: var(--primary-dark);
     color: var(--neutral-lightest);
     display: inline-flex;
@@ -320,9 +320,9 @@
     left: 0;
     right: 8px;
     border: 1px solid var(--neutral-extra-light);
-    border-radius: 1rem;
+    border-radius: var(--radius-lg);
     background: var(--surface);
-    box-shadow: 0 10px 32px rgba(32, 33, 34, 0.16);
+    box-shadow: var(--overlay-shadow);
     padding: 0.5rem;
     display: grid;
     gap: 0.15rem;
@@ -347,7 +347,7 @@
   .desktopSuggestion:hover,
   .desktopSuggestion:focus-visible {
     color: var(--secondary-medium);
-    background: rgba(211, 20, 80, 0.05);
+    background: var(--interaction-secondary-soft);
   }
 
   .desktopEmptyState {
@@ -357,8 +357,4 @@
     font-size: var(--font-size-body-small);
     line-height: var(--font-line-height-body-small);
   }
-}
-
-:global(html[data-theme='dark']) .brandLogo {
-  filter: brightness(0) saturate(100%) invert(1);
 }

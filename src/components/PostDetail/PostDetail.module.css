@@ -17,7 +17,7 @@
 
 .title {
   margin: 0;
-  font-size: clamp(1.25rem, 3.4vw, var(--font-size-h2));
+  font-size: clamp(1.25rem, 3.4vw, var(--font-size-h1));
   line-height: var(--font-line-height-h2);
   color: var(--primary-dark);
 }
@@ -34,7 +34,7 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .heroImage {
     height: 17rem;
   }

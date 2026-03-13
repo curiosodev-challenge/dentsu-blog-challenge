@@ -9,7 +9,7 @@
   align-items: center;
   column-gap: 0.5rem;
   row-gap: 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem var(--layout-inline-padding-mobile);
   background: var(--bg-main);
   border-top: 1px solid var(--neutral-extra-light);
   position: relative;
@@ -37,7 +37,7 @@
 
 .mobileDropdownTrigger {
   border: 1px solid var(--secondary-medium);
-  border-radius: 999px;
+  border-radius: var(--control-radius-pill);
   background: var(--neutral-lightest);
   color: var(--secondary-medium);
   flex: 1 1 auto;
@@ -59,13 +59,13 @@
 
 .mobileDropdownTrigger:hover,
 .mobileDropdownTriggerActive {
-  background: rgba(211, 20, 80, 0.05);
+  background: var(--interaction-secondary-soft);
   color: var(--secondary-medium);
 }
 
 .mobileDropdownClear {
   border: 1px solid var(--secondary-medium);
-  border-radius: 999px;
+  border-radius: var(--control-radius-pill);
   background: var(--neutral-lightest);
   color: var(--secondary-medium);
   width: 2rem;
@@ -79,7 +79,7 @@
 
 .mobileDropdownClear:hover,
 .mobileDropdownClear:focus-visible {
-  background: rgba(211, 20, 80, 0.05);
+  background: var(--interaction-secondary-soft);
 }
 
 .mobileDropdownMenu {
@@ -87,11 +87,11 @@
   top: calc(100% + 0.4rem);
   left: 0;
   min-width: 100%;
-  width: min(19.625rem, calc(100vw - 2rem));
+  width: min(19.625rem, calc(100vw - (2 * var(--layout-inline-padding-mobile))));
   border: 1px solid var(--neutral-extra-light);
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
   background: var(--surface);
-  box-shadow: 0 10px 32px rgba(32, 33, 34, 0.16);
+  box-shadow: var(--overlay-shadow);
   padding: 1rem;
   display: grid;
   gap: 0.5rem;
@@ -105,7 +105,7 @@
 
 .mobileDropdownItem {
   border: none;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--neutral-darkest);
   font-size: var(--font-size-body-small);
@@ -119,11 +119,11 @@
 
 .mobileDropdownItem:hover {
   color: var(--secondary-medium);
-  background: rgba(211, 20, 80, 0.05);
+  background: var(--interaction-secondary-soft);
 }
 
 .mobileDropdownItemSelected {
-  background: rgba(211, 20, 80, 0.05);
+  background: var(--interaction-secondary-soft);
   color: var(--secondary-medium);
 }
 
@@ -170,7 +170,7 @@
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem var(--layout-inline-padding-mobile);
   background: var(--bg-main);
 }
 
@@ -180,7 +180,7 @@
 }
 
 .layout {
-  padding: 0.5rem 1rem 1.5rem;
+  padding: 0.5rem var(--layout-inline-padding-mobile) 1.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -190,7 +190,7 @@
 }
 
 .filterPanel {
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--neutral-extra-light);
   background: var(--surface);
   padding: 0.75rem 0.75rem 0.85rem;
@@ -250,9 +250,9 @@
   padding: 0.75rem 0.5rem;
   cursor: pointer;
   transition:
-    color 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease;
+    color var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
 }
 
 .filterOption:hover {
@@ -263,8 +263,8 @@
 .filterOptionSelected {
   color: var(--accent-1-dark);
   border-color: var(--accent-1-dark);
-  border-radius: 0.5rem;
-  background: rgba(0, 191, 193, 0.05);
+  border-radius: var(--radius-md);
+  background: var(--interaction-accent-soft);
 }
 
 .filterOptionSelected:hover {
@@ -294,24 +294,24 @@
   align-items: center;
   gap: 1rem;
   border: 1px solid var(--danger-border);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   padding: 0.6rem 0.7rem;
   background: var(--danger-surface);
 }
 
-.errorBox p {
+.errorMessage {
   margin: 0;
   font-size: var(--font-size-body-small);
   line-height: var(--font-line-height-body-small);
   color: var(--danger-text);
 }
 
-.errorBox button {
+.errorRetryButton {
   border: none;
-  border-radius: 999px;
+  border-radius: var(--control-radius-pill);
   padding: 0.3rem 0.7rem;
   background: var(--danger-button-bg);
-  color: #fff;
+  color: var(--text-inverse);
   font-size: var(--font-size-caption);
   line-height: var(--font-line-height-caption);
   font-weight: var(--font-weight-semi-bold);
@@ -325,12 +325,12 @@
 
   .titleRow {
     display: flex;
-    padding: 0.75rem 56px 1rem;
+    padding: 0.75rem var(--layout-inline-padding-desktop) 1rem;
     flex-wrap: nowrap;
   }
 
   .layout {
-    padding: 0 56px 2.5rem;
+    padding: 0 var(--layout-inline-padding-desktop) 2.5rem;
     grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
     column-gap: 1.5rem;
     row-gap: 1.5rem;
@@ -348,7 +348,8 @@
 
 @media (min-width: 75rem) {
   .layout {
-    padding: 0 56px 56px;
+    padding: 0 var(--layout-inline-padding-desktop)
+      var(--layout-page-bottom-padding-desktop);
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: 24px;
     row-gap: 24px;
