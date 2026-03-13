@@ -32,7 +32,7 @@ describe('RequestErrorScreen', () => {
     await user.click(screen.getByRole('button', { name: 'Back' }))
     expect(onSecondaryAction).toHaveBeenCalledTimes(1)
 
-    await user.click(screen.getByRole('button', { name: 'Go to blog list' }))
+    await user.click(screen.getByRole('link', { name: 'Go to posts page' }))
     expect(onSecondaryAction).toHaveBeenCalledTimes(2)
   })
 
@@ -46,7 +46,10 @@ describe('RequestErrorScreen', () => {
       />,
     )
 
-    expect(screen.queryByRole('button', { name: 'Go to blog list' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Go to posts page' })).toHaveAttribute(
+      'href',
+      '/',
+    )
     expect(screen.queryByRole('button', { name: 'Back' })).not.toBeInTheDocument()
   })
 })

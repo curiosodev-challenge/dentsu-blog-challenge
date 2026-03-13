@@ -165,6 +165,9 @@ export function BlogHeader({
     setIsMobileSearchOpen(true)
   }
 
+  const postsHref =
+    typeof window === 'undefined' ? '/' : window.location.pathname
+
   return (
     <header
       ref={headerRef}
@@ -174,30 +177,26 @@ export function BlogHeader({
           : styles.header
       }
     >
-      {onLogoClick ? (
-        <button
-          type="button"
-          className={`${styles.brandBlock} ${styles.brandBlockButton}`}
-          onClick={onLogoClick}
-          aria-label="Go to blog list"
-        >
-          <img
-            className={styles.brandLogo}
-            src="assets/dws_dentsu_icon.png"
-            alt="Dentsu logo"
-          />
-          <span className={styles.brandText}>world services</span>
-        </button>
-      ) : (
-        <div className={styles.brandBlock}>
-          <img
-            className={styles.brandLogo}
-            src="/dws_dentsu_icon.png"
-            alt="Dentsu logo"
-          />
-          <span className={styles.brandText}>world services</span>
-        </div>
-      )}
+      <a
+        className={styles.brandBlock}
+        href={postsHref}
+        aria-label="Go to posts page"
+        onClick={(event) => {
+          if (!onLogoClick) {
+            return
+          }
+
+          event.preventDefault()
+          onLogoClick()
+        }}
+      >
+        <img
+          className={styles.brandLogo}
+          src="/dws_dentsu_icon.png"
+          alt="Dentsu logo"
+        />
+        <span className={styles.brandText}>world services</span>
+      </a>
 
       <button
         ref={mobileSearchToggleRef}

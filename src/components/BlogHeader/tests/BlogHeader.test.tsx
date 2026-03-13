@@ -51,19 +51,22 @@ describe('BlogHeader', () => {
     document.body.style.overflow = ''
   })
 
-  it('renders static branding by default and clickable branding when callback is provided', async () => {
+  it('renders branding as a posts anchor and invokes callback when provided', async () => {
     const user = userEvent.setup()
     mockMatchMedia(true)
 
     const { rerender } = render(<BlogHeader />)
 
-    expect(screen.queryByRole('button', { name: 'Go to blog list' })).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Go to posts page' })).toHaveAttribute(
+      'href',
+      '/',
+    )
     expect(screen.getByAltText('Dentsu logo')).toBeInTheDocument()
 
     const onLogoClick = vi.fn()
     rerender(<BlogHeader onLogoClick={onLogoClick} />)
 
-    await user.click(screen.getByRole('button', { name: 'Go to blog list' }))
+    await user.click(screen.getByRole('link', { name: 'Go to posts page' }))
     expect(onLogoClick).toHaveBeenCalledTimes(1)
   })
 
