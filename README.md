@@ -94,8 +94,8 @@ This keeps local UI state inside components while centralizing cross-view data c
 
 ## Getting Started
 ### Prerequisites
-- Node.js 20+ (recommended)
-- npm 10+
+- Node.js 24.14+ (recommended)
+- npm 11.9.0+ (recommended)
 
 ### One-Command Startup (New Machine)
 ```bash
