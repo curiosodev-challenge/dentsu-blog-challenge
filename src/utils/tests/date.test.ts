@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatReadableDate } from './date'
+import { formatReadableDate } from '../date'
 
 describe('formatReadableDate', () => {
   it('formats ISO date values into a readable string', () => {
